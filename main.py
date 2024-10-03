@@ -30,7 +30,7 @@ def clean_all_stl_files_in_folder(folder_path, output_filename):
 
                 # Remove timestamp if present and clean up formatting
                 cleaned_line = re.sub(timestamp_pattern, '', line)
-                cleaned_line = cleaned_line.replace('|', ' ').strip()
+                cleaned_line = cleaned_line.replace('<br>', ' ').strip()
                 if cleaned_line:  # Only add non-empty lines
                     document.add_paragraph(cleaned_line)
 
