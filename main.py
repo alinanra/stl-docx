@@ -1,5 +1,7 @@
 import re
 import os
+import tkinter as tk
+from tkinter import filedialog
 from docx import Document
 
 def clean_all_stl_files_in_folder(folder_path, output_filename):
@@ -42,9 +44,26 @@ def clean_all_stl_files_in_folder(folder_path, output_filename):
     document.save(output_filename)
     print(f"All cleaned subtitles saved to '{output_filename}'")
 
-# Specify the folder path containing the .stl files and output .docx file
-folder_path = r"C:\Users\Chris\OneDrive\Projetos\Programming\stl clean"  # Replace with your folder path containing the .stl files
-output_word_file = r"C:\Users\Chris\OneDrive\Projetos\Programming\stl clean\cleaned_subtitles.docx"  # Replace with your desired output file path
+def browse_folder():
+    folder_path = filedialog.askdirectory()  # Opens a dialog to choose a folder
+    if folder_path:
+        output_word_file = os.path.join(folder_path, 'compiled_cleaned_subs.docx')
+        clean_all_stl_files_in_folder(folder_path, output_word_file)
 
-# Run the cleanup function
-clean_all_stl_files_in_folder(folder_path, output_word_file)
+# Create a simple GUI
+root = tk.Tk()
+root.title("STL Subtitle Cleaner")
+
+# Set up the window size
+root.geometry("400x200")
+
+# Add a label to guide the user
+label = tk.Label(root, text="Select a folder containing .stl files to process", pady=20)
+label.pack()
+
+# Add a button that will allow the user to select the folder
+button = tk.Button(root, text="Browse Folder", command=browse_folder, padx=10, pady=5)
+button.pack()
+
+# Run the tkinter main loop
+root.mainloop()
