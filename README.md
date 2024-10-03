@@ -10,5 +10,5 @@ This is a simple code in python to compile all .stl files in a folder into one .
    c. the name of each file in the beginning of the text from each file
    d. line breaks following the end of the text of each file
 
-*Line breaks are set to be delimited by "<br>" and it can be modified in the following line:
+*Line breaks are set to be delimited by \<br> and it can be modified in the following line:
 cleaned_line = cleaned_line.replace('|', ' ').strip()
