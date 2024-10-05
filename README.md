@@ -2,8 +2,8 @@
 This is a simple code in python to compile all .stl files in a folder into one .docx file to speed up spellcheck of subtitle files.
 
 1. Place all the desired .stl format subtitle files in a folder.
-2. Copy the folder path to the corresponding part of the code.
-3. Run.
+2. Run.
+3. Select the folder.
 4. You'll have a .docx file with:
    a. all the text from the .stl files
    b. all the line breaks and timestamps cleaned up
